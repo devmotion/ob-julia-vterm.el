@@ -298,8 +298,8 @@ BODY contains the source code to be evaluated, and PARAMS contains header argume
 	(if (not async)
 	    (ob-julia-vterm-process-one-evaluation-sync session evaluation)
 	  (ob-julia-vterm-add-evaluation-to-evaluation-queue session evaluation)
-	  (ob-julia-vterm-process-evaluation-queue session)
-	  (concat "Executing... " (substring uuid 0 8)))))))
+	  (concat "Executing... " (substring uuid 0 8))
+	  (ob-julia-vterm-process-evaluation-queue session))))))
 
 (add-to-list 'org-src-lang-modes '("julia-vterm" . julia))
 
